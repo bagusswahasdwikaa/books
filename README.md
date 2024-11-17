@@ -4,13 +4,13 @@
 
 # **Pemrograman Asynchronous**
 
-## **Praktikum 1: Mengunduh Data dari Web Service (API)**
+## **Praktikum 1 - Mengunduh Data dari Web Service (API)**
 
-### **Soal 1 : Tambahkan nama panggilan Anda pada title app sebagai identitas hasil pekerjaan Anda.**
+### **Soal 1: Tambahkan nama panggilan Anda pada title app sebagai identitas hasil pekerjaan Anda.**
 
 ![alt text](image.png)
 
-### **Soal 2 Carilah judul buku favorit Anda di Google Books, lalu ganti ID buku pada variabel path di kode tersebut. Caranya ambil di URL browser Anda seperti gambar berikut ini.**
+### **Soal 2: Carilah judul buku favorit Anda di Google Books, lalu ganti ID buku pada variabel path di kode tersebut. Caranya ambil di URL browser Anda seperti gambar berikut ini.**
 
 ![alt text](image-1.png)
 
@@ -22,7 +22,7 @@
 
     ![alt text](image-2.png)
 
-## **Praktikum 2: Menggunakan await/async untuk menghindari callbacks**
+## **Praktikum 2 - Menggunakan await/async untuk menghindari callbacks**
 
 ### **Soal 4:**
 * Jelaskan maksud kode langkah 1 dan 2 tersebut!
@@ -33,4 +33,26 @@
 
 * Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W11: Soal 4".
 
-![alt text](gif/praktikum2.gif)
+    ![alt text](gif/praktikum2.gif)
+
+
+## **Praktikum  3 - Menggunakan Completer di Future**
+
+### **Soal 5:**
+* Jelaskan maksud kode langkah 2 tersebut!
+
+    Panggilan getNumber() akan mengembalikan sebuah Future yang akan selesai dengan nilai 42 setelah 5 detik.
+    Kode tersebut menggambarkan bagaimana menggunakan completer untuk mengontrol penyelesaian sebuah Future secara manual, terutama dalam situasi dimana kita memiliki logika kompleks atau perlu menyelesaikan Future di waktu yang tidak langsung.
+
+* Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W11: Soal 5".
+
+    ![alt text](gif/praktikum3.gif)
+
+## **Soal 6:**
+* Jelaskan maksud perbedaan kode langkah 2 dengan langkah 5-6 tersebut!
+
+    Langkah 2 menunjukkan versi dasar dari penggunaan Completer untuk menyelesaikan sebuah proses sederhana. Sementara itu, Langkah 5-6 menambahkan fleksibilitas dan keandalan dengan menangani error, memisahkan logika penghitungan, dan memberikan kontrol lebih besar terhadap bagaimana hasil ditampilkan di UI.
+
+* Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W11: Soal 6".
+
+    ![alt text](gif/praktikum3.1.gif)

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
+import 'package:async/async.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,6 +49,7 @@ class _FuturePageState extends State<FuturePage> {
       body: Center(
         child: Column(children: [
           const Spacer(),
+          // PRAKTIKUM 1:
           // ElevatedButton(
           //   child: const Text('GO!'),
           //   onPressed: () {
@@ -62,12 +64,29 @@ class _FuturePageState extends State<FuturePage> {
           //     });
           //   },
           // ),
+          
+          // PRAKTIKUM 2:
+          // ElevatedButton(
+          //   child: Text('GO!'),
+          //   onPressed: () {
+          //     count();
+          //   },
+          // ),
+
+          // PRAKTIKUM 3:
           ElevatedButton(
             child: Text('GO!'),
             onPressed: () {
-              count();
+              getNumber().then((value) {
+                setState(() {
+                  result = value.toString();
+                });
+              }).catchError((e) {
+                result = 'An error occurred';
+              });
             },
           ),
+
           const Spacer(),
           Text(result),
           const Spacer(),
@@ -108,6 +127,25 @@ class _FuturePageState extends State<FuturePage> {
     setState(() {
       result = total.toString();
     });
+  }
+
+  late Completer completer;
+
+  Future getNumber() {
+    completer = Completer<int>();
+    calculate();
+    return completer.future;
+  }
+
+  Future calculate() async {
+    try {
+      await new Future.delayed(const Duration(seconds: 5));
+      completer.complete(42);
+    // throw Exception
+    }
+    catch (_) {
+      completer.completeError({});
+    }
   }
 }
 
