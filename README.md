@@ -21,4 +21,4 @@
 
 * Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W11: Soal 3".
 
-![alt text](image-2.png)
+    ![alt text](image-2.png)
