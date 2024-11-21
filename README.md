@@ -184,6 +184,7 @@
 
 ### **Soal 16:**
 * Cobalah klik setiap button, apa yang terjadi ? Mengapa demikian ?
+   
     Klik Tombol "Red", "Green", atau "Blue": 
     Warna latar belakang layar pertama berubah sesuai tombol yang diklik.
     Kembali Tanpa Memilih Tombol: 
@@ -201,7 +202,8 @@
 
 ### **Soal 17:**
 * Cobalah klik setiap button, apa yang terjadi ? Mengapa demikian ?
-    Yang terjadi akan keluar pop up pesan dialog saat klik button change color dihalaman awal. Ada 3 warna latar belakang di pesan tersebut, apabila di klik maka akan mengganti warna latar belakang sesuai dengan button warna yang dipilih.
+   
+   Yang terjadi akan keluar pop up pesan dialog saat klik button change color dihalaman awal. Ada 3 warna latar belakang di pesan tersebut, apabila di klik maka akan mengganti warna latar belakang sesuai dengan button warna yang dipilih.
 
     Hal ini bisa terjadi karena, showDialog digunakan untuk menampilkan dialog, Navigator.pop mengembalikan data warna yang dipilih, dan setState memastikan UI diperbarui dengan warna yang baru.
 
