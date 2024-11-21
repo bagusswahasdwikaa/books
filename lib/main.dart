@@ -1,10 +1,12 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:books/navigation_first.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 import 'package:async/async.dart';
 import 'geolocation.dart';
+import 'navigation_first.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const LocationScreen(),
+      home: const NavigationFirst(),
     );
   }
 }
@@ -35,6 +37,7 @@ class FuturePage extends StatefulWidget {
 
 class _FuturePageState extends State<FuturePage> {
   String result = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,85 +45,75 @@ class _FuturePageState extends State<FuturePage> {
         title: const Text(
           'Back from the Future',
           style: TextStyle(
-            color: Colors.white, 
+            color: Colors.white,
           ),
         ),
-        backgroundColor: Colors.blue, 
+        backgroundColor: Colors.blue,
       ),
       body: Center(
-        child: Column(children: [
-          const Spacer(),
-          // PRAKTIKUM 1:
-          // ElevatedButton(
-          //   child: const Text('GO!'),
-          //   onPressed: () {
-          //     setState(() {});
-          //     getData()
-          //     .then((value) {
-          //       result = value.body.toString().substring(0, 450);
-          //       setState(() {});
-          //     }).catchError((_){
-          //       result = 'An error occurred';
-          //       setState(() {});
-          //     });
-          //   },
-          // ),
-          
-          // PRAKTIKUM 2:
-          // ElevatedButton(
-          //   child: Text('GO!'),
-          //   onPressed: () {
-          //     count();
-          //   },
-          // ),
+        child: Column(
+          children: [
+            const Spacer(),
+            // PRAKTIKUM 1:
+            // ElevatedButton(
+            //   child: const Text('GO!'),
+            //   onPressed: () {
+            //     setState(() {});
+            //     getData()
+            //     .then((value) {
+            //       result = value.body.toString().substring(0, 450);
+            //       setState(() {});
+            //     }).catchError((_){
+            //       result = 'An error occurred';
+            //       setState(() {});
+            //     });
+            //   },
+            // ),
+            
+            // PRAKTIKUM 2:
+            // ElevatedButton(
+            //   child: const Text('GO!'),
+            //   onPressed: () {
+            //     count();
+            //   },
+            // ),
 
-          // PRAKTIKUM 3:
-          // ElevatedButton(
-          //   child: Text('GO!'),
-          //   onPressed: () {
-          //     getNumber().then((value) {
-          //       setState(() {
-          //         result = value.toString();
-          //       });
-          //     }).catchError((e) {
-          //       result = 'An error occurred';
-          //     });
-          //   },
-          // ),
+            // PRAKTIKUM 3:
+            // ElevatedButton(
+            //   child: const Text('GO!'),
+            //   onPressed: () {
+            //     getNumber().then((value) {
+            //       setState(() {
+            //         result = value.toString();
+            //       });
+            //     }).catchError((e) {
+            //       result = 'An error occurred';
+            //     });
+            //   },
+            // ),
 
-          // PRAKTIKUM 4:
-          // ElevatedButton(
-          //   child: Text('GO!'),
-          //   onPressed: () {
-          //     returnFG();
-          //   }
-          // ),
+            // PRAKTIKUM 4:
+            // ElevatedButton(
+            //   child: const Text('GO!'),
+            //   onPressed: () {
+            //     returnFG();
+            //   }
+            // ),
 
-          // PRAKTIKUM 5:
-          ElevatedButton(
-            child: Text('GO!'),
-            onPressed: () {
-              // returnError()
-              //   .then((value){
-              //     setState(() {
-              //       result = 'Success';
-              //     });
-              //   }).catchError((onError){
-              //     setState(() {
-              //       result = onError.toString();
-              //     });
-              //   }).whenComplete(() => print('Complete'));
-
-              handleError();
-            }
-          ),
-
-          const Spacer(),
-          Text(result),
-          const Spacer(),
-          const CircularProgressIndicator(),
-          const Spacer(),
-        ],),
+            // PRAKTIKUM 5:
+            ElevatedButton(
+              child: const Text('GO!'),
+              onPressed: () {
+                handleError();
+              },
+            ),
+            const Spacer(),
+            Text(result),
+            const Spacer(),
+            const CircularProgressIndicator(),
+            const Spacer(),
+          ],
+        ),
       ),
     );
   }
@@ -129,12 +122,12 @@ class _FuturePageState extends State<FuturePage> {
     const authority = 'www.googleapis.com';
     const path = '/books/v1/volumes/R4qsDwAAQBAJ';
     Uri url = Uri.https(authority, path);
-    return http.get(url); 
+    return http.get(url);
   }
 
   Future<int> returnOneAsync() async {
-  await Future.delayed(const Duration(seconds: 3));
-  return 1;
+    await Future.delayed(const Duration(seconds: 3));
+    return 1;
   }
 
   Future<int> returnTwoAsync() async {
@@ -167,36 +160,11 @@ class _FuturePageState extends State<FuturePage> {
 
   Future calculate() async {
     try {
-      await new Future.delayed(const Duration(seconds: 5));
+      await Future.delayed(const Duration(seconds: 5));
       completer.complete(42);
-    // throw Exception
-    }
-    catch (_) {
+    } catch (_) {
       completer.completeError({});
     }
-  }
-
-  void returnFG() {
-    // FutureGroup<int> futureGroup = FutureGroup<int>();
-    // futureGroup.add(returnOneAsync());
-    // futureGroup.add(returnTwoAsync());
-    // futureGroup.add(returnThreeAsync());
-    // futureGroup.close();
-    // futureGroup.future.then((List <int> value) {
-    //   int total = 0;
-    //   for (var element in value) {
-    //     total += element;
-    //   }
-    //   setState(() {
-    //     result = total.toString();
-    //   });
-    // });
-
-    final futures = Future.wait<int>([
-    returnOneAsync(),
-    returnTwoAsync(),
-    returnThreeAsync(),
-  ]);
   }
 
   Future returnError() async {
@@ -207,15 +175,12 @@ class _FuturePageState extends State<FuturePage> {
   Future handleError() async {
     try {
       await returnError();
-    }
-    catch (error) {
+    } catch (error) {
       setState(() {
         result = error.toString();
       });
-    }
-    finally {
+    } finally {
       print('Complete');
     }
   }
 }
-

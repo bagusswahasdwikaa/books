@@ -48,7 +48,7 @@
 
     ![alt text](gif/praktikum3.gif)
 
-## **Soal 6:**
+### **Soal 6:**
 * Jelaskan maksud perbedaan kode langkah 2 dengan langkah 5-6 tersebut!
 
     Langkah 2 menunjukkan versi dasar dari penggunaan Completer untuk menyelesaikan sebuah proses sederhana. Sementara itu, Langkah 5-6 menambahkan fleksibilitas dan keandalan dengan menangani error, memisahkan logika penghitungan, dan memberikan kontrol lebih besar terhadap bagaimana hasil ditampilkan di UI.
@@ -60,12 +60,12 @@
 
 ## **Praktikum  4 - Memanggil Future secara paralel**
 
-## **Soal 7:**
+### **Soal 7:**
 * Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W11: Soal 7".
 
     ![alt text](gif/praktikum4.gif)
 
-## **Soal 8:**
+### **Soal 8:**
 * Jelaskan maksud perbedaan kode langkah 1 dan 4!
     Langkah 1:
     - Bisa menambahkan future secara dinamis sebelum grup ditutup.	
@@ -81,7 +81,7 @@
 
 ## **Praktikum  5 - Menangani Respon Error pada Async Code**
 
-## **Soal 9:**
+### **Soal 9:**
 * Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W11: Soal 9".
 
     ![alt text](gif/praktikum5.gif)
@@ -89,7 +89,7 @@
     **Debug Console**
     ![alt text](gif/Praktikum5debug.png)
 
-## **Soal 10**
+### **Soal 10**
 * Panggil method handleError() tersebut di ElevatedButton, lalu run. Apa hasilnya? Jelaskan perbedaan kode langkah 1 dan 4!
 
     ![alt text](gif/praktikum5.1.gif)
@@ -121,12 +121,12 @@
 
 ## **Praktikum  6 - Menggunakan Future dengan StatefulWidget**
 
-## **Soal 11:**
+### **Soal 11:**
 * Tambahkan nama panggilan Anda pada tiap properti title sebagai identitas pekerjaan Anda.
 
     ![alt text](gif/praktikum6.png)
 
-## **Soal 12:**
+### **Soal 12:**
 * Jika Anda tidak melihat animasi loading tampil, kemungkinan itu berjalan sangat cepat. Tambahkan delay pada method getPosition() dengan kode await Future.delayed(const Duration(seconds: 3));
 * Apakah Anda mendapatkan koordinat GPS ketika run di browser? Mengapa demikian?
 
@@ -140,7 +140,7 @@
 
 ## **Praktikum  7 - Manajemen Future dengan FutureBuilder**
 
-## **Soal 13:**
+### **Soal 13:**
 * Apakah ada perbedaan UI dengan praktikum sebelumnya? Mengapa demikian?
     - Kode Sebelumnya: UI diperbarui secara manual menggunakan setState() setelah mendapatkan posisi melalui metode initState() dan getPosition(). Indikator pemuatan hanya muncul jika data lokasi belum selesai diambil.
 
@@ -160,7 +160,7 @@
 
 * Seperti yang Anda lihat, menggunakan FutureBuilder lebih efisien, clean, dan reactive dengan Future bersama UI.
 
-## **Soal 14:**
+### **Soal 14:**
 * Apakah ada perbedaan UI dengan langkah sebelumnya? Mengapa demikian?
 
     * Jika error terjadi, UI mungkin tetap mencoba menampilkan data kosong atau null, sehingga hasilnya seperti bug.
@@ -170,6 +170,32 @@
 * Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W11: Soal 14".
 
     ![alt text](gif/praktikum7.1.gif)
+
+## **Praktikum  8 - Navigation route dengan Future Function**
+
+### **Soal 15:**
+* Tambahkan nama panggilan Anda pada tiap properti title sebagai identitas pekerjaan Anda.
+
+    ![alt text](image-4.png)
+
+* Silakan ganti dengan warna tema favorit Anda.
+
+    ![alt text](image-5.png)
+
+### **Soal 16:**
+* Cobalah klik setiap button, apa yang terjadi ? Mengapa demikian ?
+    Klik Tombol "Red", "Green", atau "Blue": 
+    Warna latar belakang layar pertama berubah sesuai tombol yang diklik.
+    Kembali Tanpa Memilih Tombol: 
+    Warna latar belakang layar pertama tetap sebagai default. Ini terjadi karena data dikirim kembali dari layar kedua ke layar pertama menggunakan Navigator.pop(context, data), dan layar pertama diperbarui dengan warna yang diterima.
+
+* Gantilah 3 warna pada langkah 5 dengan warna favorit Anda!
+
+    ![alt text](image-6.png)
+
+* Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W11: Soal 16".
+
+    ![alt text](gif/praktikum8.gif)
 
 
 
