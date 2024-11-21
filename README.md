@@ -197,5 +197,21 @@
 
     ![alt text](gif/praktikum8.gif)
 
+## **Praktikum  9 - Memanfaatkan async/await dengan Widget Dialog**
+
+### **Soal 17:**
+* Cobalah klik setiap button, apa yang terjadi ? Mengapa demikian ?
+    Yang terjadi akan keluar pop up pesan dialog saat klik button change color dihalaman awal. Ada 3 warna latar belakang di pesan tersebut, apabila di klik maka akan mengganti warna latar belakang sesuai dengan button warna yang dipilih.
+
+    Hal ini bisa terjadi karena, showDialog digunakan untuk menampilkan dialog, Navigator.pop mengembalikan data warna yang dipilih, dan setState memastikan UI diperbarui dengan warna yang baru.
+
+* Gantilah 3 warna pada langkah 3 dengan warna favorit Anda!
+
+    ![alt text](image-7.png)
+
+* Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W11: Soal 17".
+
+    ![alt text](gif/praktikum9.gif)
+
 
 
