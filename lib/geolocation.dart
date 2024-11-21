@@ -9,57 +9,66 @@ class LocationScreen extends StatefulWidget {
 }
 
 class _LocationScreenState extends State<LocationScreen> {
-  String myPosition = '';
+  Future<Position>? position;
 
   @override
   void initState() {
     super.initState();
-    getPosition().then((myPos) {
-      if (myPos != null) {
-        setState(() {
-          myPosition =
-              'Latitude: ${myPos.latitude.toString()} - Longitude: ${myPos.longitude.toString()}';
-        });
-      }
-    });
+    position = getPosition();  // Menyimpan Future di variabel position
   }
 
   @override
   Widget build(BuildContext context) {
-    final myWidget = myPosition == ''
-        ? const CircularProgressIndicator()
-        : Text(myPosition);
-
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Current Location : Bagus Wahasdwika'),
+      appBar: AppBar(title: Text('Future Builder : Bagus Wahasdwika',
+      style: TextStyle(
+            color: Colors.white, 
+          ),
+        ),
+        backgroundColor: Colors.blue,
       ),
       body: Center(
-        child: Center(child: myWidget),
+        child: FutureBuilder<Position>(
+          future: position, // Menggunakan position yang sudah diinisialisasi
+          builder: (BuildContext context, AsyncSnapshot<Position> snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return Text('Error: ${snapshot.error}');
+              } else if (snapshot.hasData) {
+                // Menampilkan latitude dan longitude jika data tersedia
+                return Text('Latitude: ${snapshot.data!.latitude}, Longitude: ${snapshot.data!.longitude}');
+              }
+            } else if (snapshot.connectionState == ConnectionState.waiting) {
+              return CircularProgressIndicator(); // Menunggu data
+            }
+            else if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return Text('Something terrible happened!');
+              }
+              return Text(snapshot.data.toString());
+            }
+            return const Text(''); // Menampilkan teks kosong jika tidak ada data
+          },
+        ),
       ),
     );
   }
 
-  Future<Position?> getPosition() async {
-    bool serviceEnabled;
-    LocationPermission permission;
-
-    // Memberikan delay selama 3 detik
-    await Future.delayed(const Duration(seconds: 3));
-
-    // Memeriksa apakah layanan lokasi aktif
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+  Future<Position> getPosition() async {
+    // Memastikan layanan lokasi aktif
+    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
-      return null; // Lokasi tidak aktif
+      throw Exception("Layanan lokasi tidak aktif");
     }
 
     // Meminta izin lokasi
-    permission = await Geolocator.requestPermission();
+    LocationPermission permission = await Geolocator.requestPermission();
     if (permission == LocationPermission.denied) {
-      return null; // Izin ditolak
+      throw Exception("Izin lokasi ditolak");
     }
 
-    // Jika izin diberikan, ambil lokasi saat ini
+    // Menunggu beberapa detik dan mendapatkan posisi saat ini
+    await Future.delayed(const Duration(seconds: 3));
     return await Geolocator.getCurrentPosition();
   }
 }

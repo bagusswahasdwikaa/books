@@ -138,4 +138,38 @@
 
     ![alt text](gif/praktikum6.1.gif)
 
+## **Praktikum  7 - Manajemen Future dengan FutureBuilder**
+
+## **Soal 13:**
+* Apakah ada perbedaan UI dengan praktikum sebelumnya? Mengapa demikian?
+    - Kode Sebelumnya: UI diperbarui secara manual menggunakan setState() setelah mendapatkan posisi melalui metode initState() dan getPosition(). Indikator pemuatan hanya muncul jika data lokasi belum selesai diambil.
+
+    - Kode Sekarang: Menggunakan FutureBuilder untuk menangani data asinkron, yang secara otomatis mengelola pembaruan UI berdasarkan status koneksi (seperti waiting, done, dll.).
+
+    - Kontrol Tampilan:
+        - Kode Sebelumnya: UI bergantung pada variabel lokal myPosition untuk menentukan apakah animasi pemuatan atau teks lokasi yang ditampilkan.
+        - Kode Sekarang: UI menjadi lebih dinamis karena FutureBuilder secara otomatis menyesuaikan tampilan berdasarkan status snapshot (misalnya: waiting, done, atau error).
+
+    - Responsivitas Error:
+        - Kode Sebelumnya: Tidak ada penanganan error yang baik, seperti saat pengguna menolak izin lokasi.
+        
+        - Kode Sekarang: Error diperiksa dalam FutureBuilder dan tampilan error akan ditampilkan jika terjadi masalah (misalnya "Something terrible happened!").
+* Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W11: Soal 13".
+    
+    ![alt text](gif/praktikum7.gif)
+
+* Seperti yang Anda lihat, menggunakan FutureBuilder lebih efisien, clean, dan reactive dengan Future bersama UI.
+
+## **Soal 14:**
+* Apakah ada perbedaan UI dengan langkah sebelumnya? Mengapa demikian?
+
+    * Jika error terjadi, UI mungkin tetap mencoba menampilkan data kosong atau null, sehingga hasilnya seperti bug.
+
+    * UI lebih informatif karena menampilkan pesan error seperti pada praktikum 5 "Something terrible happened!" ketika ada masalah, sehingga pengguna menyadari    bahwa ada kendala.
+
+* Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W11: Soal 14".
+
+    ![alt text](gif/praktikum7.1.gif)
+
+
 
