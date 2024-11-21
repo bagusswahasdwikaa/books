@@ -78,3 +78,64 @@
     - Lebih ringkas dan mudah diimplementasikan.
     - Cocok jika semua future sudah pasti sejak awal.
 	- Tidak memerlukan langkah tambahan seperti close().
+
+## **Praktikum  5 - Menangani Respon Error pada Async Code**
+
+## **Soal 9:**
+* Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W11: Soal 9".
+
+    ![alt text](gif/praktikum5.gif)
+
+    **Debug Console**
+    ![alt text](gif/Praktikum5debug.png)
+
+## **Soal 10**
+* Panggil method handleError() tersebut di ElevatedButton, lalu run. Apa hasilnya? Jelaskan perbedaan kode langkah 1 dan 4!
+
+    ![alt text](gif/praktikum5.1.gif)
+
+    - Saat returnError() dipanggil langsung:
+        Setelah 2 detik, exception akan dilempar dengan pesan 'Something terrible happened!'. Jika tidak ada penanganan error, aplikasi bisa crash.
+    - Saat handleError() dipanggil:
+        - Setelah 2 detik, returnError() akan melempar exception.
+        - Exception tersebut ditangkap di dalam blok catch, lalu nilai variabel result diperbarui menjadi 'Exception: Something terrible happened!'.
+        - Teks 'Complete' dicetak di konsol sebagai tanda eksekusi selesai.
+        - Tidak ada crash karena error ditangani dengan baik.
+
+    Langkah 1: returnError()
+    Kode ini merupakan sebuah method Future yang mensimulasikan terjadinya error dengan sengaja menggunakan throw Exception().
+
+    - Fungsi ini menggunakan Future.delayed untuk menunda eksekusi selama 2 detik.
+    - Setelah penundaan, fungsi ini menghasilkan sebuah exception dengan pesan 'Something terrible happened!'.
+    - Tidak ada mekanisme penanganan error dalam fungsi ini; exception hanya dilempar dan perlu ditangani di tempat lain.
+
+    Langkah 4: handleError()
+    Kode ini merupakan sebuah method Future yang memanggil fungsi returnError() dan menangani error yang terjadi menggunakan blok try-catch-finally.
+
+    - Blok try:
+        Menjalankan returnError() yang berpotensi melempar error.
+    - Blok catch:
+        Menangkap error yang dilempar oleh returnError() dan mengubah state aplikasi dengan memperbarui nilai variabel result menjadi string dari error tersebut.
+    - Blok finally:
+        Menjalankan kode yang selalu dieksekusi, terlepas dari apakah error terjadi atau tidak. Dalam kasus ini, hanya mencetak 'Complete' ke konsol.
+
+## **Praktikum  6 - Menggunakan Future dengan StatefulWidget**
+
+## **Soal 11:**
+* Tambahkan nama panggilan Anda pada tiap properti title sebagai identitas pekerjaan Anda.
+
+    ![alt text](gif/praktikum6.png)
+
+## **Soal 12:**
+* Jika Anda tidak melihat animasi loading tampil, kemungkinan itu berjalan sangat cepat. Tambahkan delay pada method getPosition() dengan kode await Future.delayed(const Duration(seconds: 3));
+* Apakah Anda mendapatkan koordinat GPS ketika run di browser? Mengapa demikian?
+
+    ![alt text](gif/praktikum6browser.png)
+
+    Saat melakukan run di browser, browser meminta izin lokasi untuk mendapatkan koordinat GPS. Karena  privasi dan keamanan. Browser meminta izin agar pengguna tahu bahwa aplikasi web ingin mengakses data lokasi mereka, untuk melindungi informasi pribadi pengguna.
+
+* Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W11: Soal 12".
+
+    ![alt text](gif/praktikum6.1.gif)
+
+
