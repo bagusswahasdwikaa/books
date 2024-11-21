@@ -56,3 +56,25 @@
 * Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W11: Soal 6".
 
     ![alt text](gif/praktikum3.1.gif)
+
+
+## **Praktikum  4 - Memanggil Future secara paralel**
+
+## **Soal 7:**
+* Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W11: Soal 7".
+
+    ![alt text](gif/praktikum4.gif)
+
+## **Soal 8:**
+* Jelaskan maksud perbedaan kode langkah 1 dan 4!
+    Langkah 1:
+    - Bisa menambahkan future secara dinamis sebelum grup ditutup.	
+    - Memerlukan lebih banyak kode dan pengelolaan eksplisit.
+    - 	Cocok untuk situasi dengan kumpulan future yang tidak pasti sejak awal.
+    - Harus memanggil close() secara manual sebelum hasil diproses.	
+
+    Langkah 4:
+    - Semua future harus diketahui dan didefinisikan sekaligus.
+    - Lebih ringkas dan mudah diimplementasikan.
+    - Cocok jika semua future sudah pasti sejak awal.
+	- Tidak memerlukan langkah tambahan seperti close().
